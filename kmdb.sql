@@ -59,20 +59,25 @@ CREATE TABLE movies (
   title TEXT,
   year_released TEXT,
   MPAA_rating TEXT,
-  studio Text
+  studio Text,
+  actor Text,
+  character Text
 ); 
 
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  movie_title Text
+  movie_title Text,
+  year_released Text
 ); 
 
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  first_name Text;
-  last_name Text;
-  character Text;
-  movie_title Text
+  first_name Text,
+  last_name Text,
+  character Text,
+  movie_title Text,
+  year_released Text,
+  studio Text
 );
 -- 2. Execution of the domain model (CREATE TABLE) - 4 points
 -- - Follow best practices for table and column names
