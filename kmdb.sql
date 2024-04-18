@@ -77,15 +77,31 @@ CREATE TABLE actors (
   character Text,
   movie_title Text,
   year_released Text,
-  studio Text
+  studio Text 
 );
 -- 2. Execution of the domain model (CREATE TABLE) - 4 points
 -- - Follow best practices for table and column names
 -- - Use correct data column types (i.e. TEXT/INTEGER)
 -- - Use of the `model_id` naming convention for foreign key columns
+
 -- 3. Insertion of data (INSERT statements) - 4 points
 -- - Insert data into all the tables you've created
 -- - It actually works, i.e. proper INSERT syntax
+Insert Into movies (
+  id,
+  title,
+  year_released,
+  MPAA_rating,
+  studio
+)
+VALUES (
+  "1",
+  "Batman Begins",
+  "2005",
+  "PG-13"
+  "Warner Bros."
+);
+--Batman Begins          2005           PG-13  Warner Bros.
 -- 4. "The report" (SELECT statements) - 6 points
 -- - Write 2 `SELECT` statements to produce something similar to the
 --   sample output below - 1 for movies and 1 for cast. You will need
