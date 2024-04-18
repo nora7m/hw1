@@ -50,35 +50,9 @@
 --   is a reserved word in sqlite and will break your database! Instead, 
 --   think of a better word to describe this concept; i.e. the relationship 
 --   between an actor and the movie in which they play a part.
-DROP TABLE IF EXISTS movies;
-DROP TABLE IF EXISTS studios;
-DROP TABLE IF EXISTS actors;
 
-CREATE TABLE movies (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT,
-  year_released TEXT,
-  MPAA_rating TEXT,
-  studio Text,
-  actor Text,
-  character Text
-); 
 
-CREATE TABLE studios (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  movie_title Text,
-  year_released Text
-); 
 
-CREATE TABLE actors (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  first_name Text,
-  last_name Text,
-  character Text,
-  movie_title Text,
-  year_released Text,
-  studio Text 
-);
 -- 2. Execution of the domain model (CREATE TABLE) - 4 points
 -- - Follow best practices for table and column names
 -- - Use correct data column types (i.e. TEXT/INTEGER)
@@ -87,26 +61,14 @@ CREATE TABLE actors (
 -- 3. Insertion of data (INSERT statements) - 4 points
 -- - Insert data into all the tables you've created
 -- - It actually works, i.e. proper INSERT syntax
-Insert Into movies (
-  id,
-  title,
-  year_released,
-  MPAA_rating,
-  studio
-)
-VALUES (
-  "1",
-  "Batman Begins",
-  "2005",
-  "PG-13"
-  "Warner Bros."
-);
---Batman Begins          2005           PG-13  Warner Bros.
+
+
 -- 4. "The report" (SELECT statements) - 6 points
 -- - Write 2 `SELECT` statements to produce something similar to the
 --   sample output below - 1 for movies and 1 for cast. You will need
 --   to read data from multiple tables in each `SELECT` statement.
 --   Formatting does not matter.
+
 -- 5. Using external resources for help with the assignment (including colleagues, AI, internet search, etc):
 -- - Engineers look to colleagues and the internet all the time when building software.
 --   You are welcome to do the same. However, the solution you submit must utilize
@@ -157,14 +119,56 @@ VALUES (
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS actors;
 
 -- Create new tables, according to your domain model
 -- TODO!
 
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT,
+  year_released INTEGER,
+  MPAA_rating TEXT,
+  studio Text,
+  actor Text,
+  character Text
+); 
+
+CREATE TABLE studios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_title Text,
+  year_released INTEGER
+); 
+
+CREATE TABLE actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name Text,
+  last_name Text,
+  character Text,
+  movie_title Text,
+  year_released INTEGER,
+  studio Text 
+);
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+Insert Into movies (
+  id,
+  title,
+  year_released,
+  MPAA_rating,
+  studio
+);
 
+VALUES (
+  "1",
+  "Batman Begins",
+  "2005",
+  "PG-13",
+  "Warner Bros."
+);
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
