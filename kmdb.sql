@@ -50,6 +50,30 @@
 --   is a reserved word in sqlite and will break your database! Instead, 
 --   think of a better word to describe this concept; i.e. the relationship 
 --   between an actor and the movie in which they play a part.
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS actors;
+
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT,
+  year_released TEXT,
+  MPAA_rating TEXT,
+  studio Text
+); 
+
+CREATE TABLE studios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_title Text
+); 
+
+CREATE TABLE actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name Text;
+  last_name Text;
+  character Text;
+  movie_title Text
+);
 -- 2. Execution of the domain model (CREATE TABLE) - 4 points
 -- - Follow best practices for table and column names
 -- - Use correct data column types (i.e. TEXT/INTEGER)
